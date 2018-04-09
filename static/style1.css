@@ -1,0 +1,279 @@
+.registration{
+  position: absolute;
+  top:35%;
+   width: 80%;
+    left: 10%; 
+  text-align: center;
+}
+
+.bigbutton{
+  background-color: green;
+   color: black;
+    font-weight: bold;
+     width: 30%;
+     line-height: 2em;
+     font-size: 20px;
+}
+
+.largeData{
+  width: 80%;
+  top: 35%;
+  position: absolute;
+  left: 10%;
+}
+#listbox p{
+  color: black;
+font-size: 35px;
+text-align: center;
+font-weight: 800;
+line-height: 2em;
+}
+
+
+.boxcenter{
+  text-align: center;
+  font-size: 40px;
+}
+
+#landing{
+  background-image:url('../img/landing.jpeg');
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#landing p {
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.parallax-body, .parallax{
+  height:100%;
+  margin:0;
+  
+  font-family:"Lato", sans-serif;
+  font-weight:400;
+  line-height:1.8em;
+  color:black;
+}
+
+.parallax-img{
+  position:relative;
+  opacity:0.70;
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+}
+
+.parallax-landing{
+  min-height:100%;
+  background-image:url(../static/img/projects-landing.jpg)
+}
+
+.parallax-section{
+    min-height:400px;
+}
+
+.section{
+  text-align:center;
+  padding:50px 80px;
+}
+
+.section-light{
+  background-color:rgb(255, 253, 234);
+  color:#666;
+}
+
+.section-dark{
+  background-color:#122F4B;
+  color:#ddd;
+}
+
+.ptext .border {
+  line-height: 200%;
+}
+
+.ptext{
+  background-color:rgba(18, 47, 75, 0.8);
+  position:absolute;
+  top:40%;
+  width:40%;
+  left: 30%;
+  text-align:center;
+  color:#fff;
+  font-size:50px;
+  letter-spacing:8px;
+  text-transform:uppercase;
+}
+
+.ptext .border{
+  line-height: 200%;
+}
+
+
+#cate_restaurant{
+  position: relative;
+  width: 80%;
+  left: 10%;
+  top:18%;
+  padding: 20px;
+  float: left;
+  text-align: center;
+}
+
+
+.catButtons{
+  font-size: 18px;
+  color:black;
+  border: black 1px solid;
+  padding: 10px 20px;
+  border-radius: 100px;
+  margin-top: 10px;
+  
+}
+
+#restaurantList{
+  width: 80%; 
+  left: 10%;
+  position: absolute;
+  top: 35%;
+}
+
+*{
+    margin:0;
+    padding: 0;
+}
+
+body{
+    margin: 0;
+    line-height: 1.6;
+}
+
+#listbox{
+  background: #2196f3;
+  padding: 20px;
+  width: 48%;
+  height: 150px;
+  border-radius: 20px;
+  margin: 10px;
+  float: left;
+  opacity: 0.7;
+}
+
+
+.button{
+    font-size: 18px;
+    opacity: 1;
+    color:black;
+    text-decoration: none;
+    border: black 1px solid;
+    padding: 10px 20px;
+    border-radius: 100px;
+    margin-top: 10px;
+}
+
+#buttons{
+  margin: 20px, 20px, 20px, 20px;
+  align-content: center;
+  
+  
+}
+
+.catButtons:hover{
+  background-color: black;
+  color: white;
+}
+
+.button:hover{
+    background-color: black;
+    color: white;
+}
+
+.navbar{
+    margin-bottom: 0;
+    background-color: #122F4B;
+    
+}
+
+main{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 5%;
+  
+}
+  .parallax{
+    height:100%;
+    margin:0;
+    font-size:16px;
+    font-family:"Lato", sans-serif;
+    font-weight:400;
+    line-height:1.8em;
+    color:#666;
+    position:relative;
+    
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+}
+  
+.title{
+  background-color:rgba(18, 47, 75, 0.8);
+  position:absolute;
+  top:15%;
+  width:30%;
+  text-align:center;
+  color:#fff;
+  font-size:27px;
+  letter-spacing:8px;
+  text-transform:uppercase;
+  padding: 0px 20px;
+  margin-left: 35%;
+}
+
+    
+
+  
+@media(max-width:778px){
+      .parallax-img{
+        background-attachment:scroll;
+  }
+
+  #buttons{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+  }
+
+  .button{
+        margin: 3%;
+        padding: 5%;
+        font-size: 35px;
+  }
+      
+  body{
+        line-height: 1;
+      }
+
+  .section{
+      padding: 50px 20px;
+    }
+    #listbox{
+      padding: 10px;
+    }
+    .ptext{
+      top: 40%;
+    }
+}
+  
+@media(max-width: 876px){
+  .navbar-header a{
+    display: none;
+  }
+}
+

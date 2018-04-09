@@ -1,0 +1,92 @@
+<html>
+
+        <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+              
+                <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+              
+                <title>Edit Item</title>
+                <link rel="stylesheet" href="../../../../static/style1.css">
+                
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                     
+                      <ul class="nav navbar-nav">
+                        <li class="active"><a href="{{url_for('restaurants')}}">Home</a></li>
+                        
+                        <li><a href="{{url_for('register')}}">Register</a></li>
+                        <li><a href="{{url_for('raterList')}}">Raters</a></li>
+                      </ul>
+                    </div>
+                </nav>
+        </head>
+
+        <body class="parallax-body pimg1 parallax-img parallax-landing" style='background-image:url(../../../../static/img/education-landing.jpeg)'>
+  <h1> Edit Menu Item </h1>
+
+
+  <div class = "registration">
+<form style="font-size: 20px; line-height: 2em; text-align: center ;" action="#" method = 'post'>
+
+
+  <div>
+	<p>Name:</p>
+    <input type ='text' size='30' name='name' placeholder = '{{item.name }}'>
+    </div>
+    <div>
+	<p>Description:</p>
+    <input type ='text' size='30' name='description' placeholder = '{{item.description}}'>
+    </div>
+    <div>
+	<p>Price:</p>
+    <input type ='text' size='30' name='price' placeholder = '{{item.price}}'>
+    </div>
+
+    <div>
+	<p>Course:<p>
+
+	{% if item.category == 'Appetizer' %}
+		<dd><input type ='radio' name='course' value='Appetizer'checked >Appetizer</dd>
+	{%else%}
+	<dd><input type ='radio' name='course' value='Appetizer' >Appetizer</dd>
+    {% endif %}
+
+    {% if item.category == 'Entree' %}
+       <dd><input type ='radio' name='course' value='Entree' checked>Entree</dd>
+
+    {%else%}
+		<dd><input type ='radio' name='course' value='Entree'>Entree</dd>
+    {% endif %}
+
+	{% if item.category == 'Dessert'%}
+		<dd><input type ='radio' name='course' value='Dessert'checked >Dessert</dd>
+
+	{% else %}
+	   <dd><input type ='radio' name='course' value='Dessert'>Dessert</dd>
+
+	{% endif %}
+
+
+	{%if item.category =='Beverage'%}
+		<dd><input type ='radio' name='course' value='Beverage'checked >Beverage</dd>
+	{% else %}
+		<dd><input type ='radio' name='course' value='Beverage'>Beverage</dd>
+	{% endif %}
+  </div>
+
+<br>
+<input class="bigbutton" type='submit' value='Edit'>
+
+<br>
+<a class="button" style="line-height: 3em" href = '{{url_for('showMenu', business_id=business_id)}}'> Cancel </a>
+
+
+</form>
+</div>
+</body>
+</html>

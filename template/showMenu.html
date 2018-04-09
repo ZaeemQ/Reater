@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html class='parallax' lang="en">
+	
+
+	
+        <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+              
+                <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+              
+                <title>Menu</title>
+                <link rel="stylesheet" href="../../static/style1.css">
+                
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                      
+                      <ul class="nav navbar-nav">
+                        <li class="active"><a href="{{url_for('restaurants')}}">Home</a></li>
+                        <li><a href="{{url_for('register')}}">Register</a></li>
+                        <li><a href="{{url_for('raterList')}}">Raters</a></li>
+                      </ul>
+                    </div>
+                </nav>
+        </head>
+	<body class="parallax-body">
+
+	
+	
+		<div class = 'pimg1 parallax-img parallax-landing' style='background-image:url(../../static/img/uottawa.jpg) '>
+			<div class="ptext">
+			<span class="border"> Menu </span>
+			</div>
+		</div>
+		
+
+		<section class="section section-dark">
+			<h2>Manager: </h2>
+				
+			<h2 >Open Hours: </h2>
+				<ul>
+					<li>Monday: {{restaurant.hours[0]}}</li>
+					<li>Tuesday: {{restaurant.hours[1]}}</li>
+					<li>Wednesday: {{restaurant.hours[2]}}</li>
+					<li>Thursday: {{restaurant.hours[3]}}</li>
+					<li>Friday: {{restaurant.hours[4]}}</li>
+				</ul>
+		
+		
+
+		
+			<h2>Location: </h2>
+				{% for i in location %}
+				<ul>
+					<li>{{i.address}}</li>
+					</ul>
+				{% endfor %}
+			
+			<h2>Website: </h2> 
+				<p> {{restaurant.URL}} </p>
+					
+			<a class="button" style="color: white; border-color:white;" href = "{{url_for('showRatings',business_id = business_id)}}">Ratings of this restaurant</a>		
+				
+    		{% if items !=[] %}
+
+				</br>
+			</br>
+			
+			<a class="button" href = "{{url_for('newMenuItem', business_id = business_id )}}">Create New Menu Item</a>
+
+			<h2>MOST Expensive</h2>
+				<p>{{exp.name}}</p>
+				<p>Priced {{exp.price}} CAD</p>
+			</section>
+
+			<section class="section section-light">
+			<h2>Appetizers</h2>
+				{% for i in items %}
+				{% if i.category == 'Appetizers' %}
+				<p>{{i.name}}   {{i.price}} CAD</p>
+				<p>{{i.description}}</p>
+				<p>Category Average {{avg['Appetizers']}} CAD</p>
+
+				<a class="button" href='{{url_for('editMenuItem', business_id = business_id, item_id=i.item_id ) }}' >Edit</a>
+				<a class="button" href='{{url_for('deleteMenuItem', business_id = business_id, item_id=i.item_id ) }}' >Delete</a>
+
+		{% endif %}
+		{% endfor %}
+	</section>
+
+		<section class="section section-dark">
+		<h2>Entrees</h2>
+
+		{% for i in items %}
+		{% if i.category == 'Entrees' %}
+
+		<p>{{i.name}}   {{i.price}} CAD</p>
+		<p>{{i.description}}</p>
+		<p>Categroy Average {{avg['Entrees']}} CAD</p>
+		
+	
+		<a class="button" href='{{url_for('editMenuItem', business_id = business_id, item_id=i.item_id ) }}' >Edit</a>
+		<a class="button" href='{{url_for('deleteMenuItem', business_id = business_id, item_id=i.item_id ) }}' >Delete</a>
+
+        {% endif %}
+		{% endfor %}
+		</section>
+
+	<section class="section section-light">
+
+	<h2>Desserts</h2>
+
+		{% for i in items %}
+		{% if i.category == 'Desserts' %}
+
+		<p>{{i.name}}    {{i.price}} CAD</p>
+		<p>{{i.description}}</p>
+		<p>Categroy Average {{avg['Desserts']}} CAD</p>
+	
+		<a class="button" href='{{url_for('editMenuItem', business_id = business_id, item_id=i.item_id ) }}' >Edit</a>
+		<a class="button" href='{{url_for('deleteMenuItem', business_id = business_id, item_id=i.item_id ) }}' >Delete</a>
+
+		{% endif %}
+		{% endfor %}
+</section>
+
+<section class="section section-dark">
+	<h2>Beverages</h2>
+
+		{% for i in items %}
+		{% if i.category == 'Beverages' %}
+
+		<p>{{i.name}}</p>
+		<P>Average</P>
+		<p>{{avg['Beverages']}} CAD</p>
+
+		<p>{{i.description}}</p>
+	
+
+		<p>{{i.price}} CAD</p>
+
+		<a class="button" href='{{url_for('editMenuItem', business_id = business_id, item_id=i.item_id ) }}' >Edit</a>
+		<a class="button" href='{{url_for('deleteMenuItem', business_id = business_id, item_id=i.item_id ) }}' >Delete</a>
+
+{% endif %}
+
+		{% endfor %}
+		
+		
+
+		{% else %}
+		<p> You currently have no menu items. </p>
+		<a href = "{{url_for('newMenuItem', business_id = business_id )}}">Create New Item</a>
+			{% endif %}
+
+</section>
+
+</div>
+</div>
+	</body>
+
+</html>

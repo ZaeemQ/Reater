@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html class='parallax' lang="en">
+        <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+              
+                <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+              
+                <title>Restaurants</title>
+                <link rel="stylesheet" href="../static/style1.css">
+                
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                      
+                      <ul class="nav navbar-nav">
+                        <li class="active"><a href="{{url_for('restaurants')}}">Home</a></li>
+                        <li><a href="{{url_for('register')}}">Register</a></li>
+                        <li><a href="{{url_for('raterList')}}">Raters</a></li>
+                      </ul>
+                    </div>
+                </nav>
+        </head>
+
+    <body class="pimg1 parallax" style='background-image:url(../static/img/projects-landing.jpg)'>
+     
+
+
+        <div id="cate_restaurant">
+                {%if cated %}
+                    
+                        {% for category in categories %}
+                            <a class='catButtons' href= "{{url_for('cateRestaurants',catergories = category)}}">{{category}}</a>
+                        {% endfor%}
+                    
+                {% endif %}
+            </div>
+            
+         <h1 class="ptext" style="font-size: 100; top: 10%">Reater</h1>
+            <div id="restaurantList">
+                {% for restaurant in restaurants %}
+                        <div id="listbox">
+                            <div style="text-align: center; line-height: 40px; margin: 10px">
+                            <a style="color: black; font-size: 35px; text-align: center;" href = "{{url_for('showMenu', business_id = restaurant.business_id)}}"> {{restaurant.name}}</a>
+                            </div> 
+                        <div id="buttons" style="text-align: center;">
+                            <a class="button" href = "{{url_for('editRestaurant',business_id = restaurant.business_id)}}">Edit Restaurant</a>
+                            <a class="button" href = "{{url_for('deleteRestaurant',business_id = restaurant.business_id)}}">Delete Restaurant</a>
+                        </div>
+                    </div>
+                {% endfor %}
+                <a id="listbox" class="button" style="background-color:#09d80c ; font-size: 35px;" href="{{url_for('newRestaurant')}}" > <h3 class="boxcenter" > Create a New Restaurant </h3> </a>
+                <a id="listbox" class="button" style="background-color:#09d80c; font-size: 35px;" href="{{url_for('news')}}" > <h3 class="boxcenter "> Rating of Restaurants </h3> </a>
+                <a id="listbox" class="button" style="background-color:#09d80c; font-size: 35px;" href="{{url_for('showRaters')}}" > <h3 class="boxcenter "> Raters and Their Ratings </h3> </a>
+               
+            </div>
+        
+    </body>
+</html>
+

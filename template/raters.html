@@ -1,0 +1,66 @@
+<html>
+        <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+              
+                <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+              
+                <title>Raters</title>
+                <link rel="stylesheet" href="../static/style1.css">
+                
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                     
+                      <ul class="nav navbar-nav">
+                        <li class="active"><a href="{{url_for('restaurants')}}">Home</a></li>
+                        
+                        <li><a href="{{url_for('register')}}">Register</a></li>
+                        <li><a href="{{url_for('raterList')}}">Raters</a></li>
+                      </ul>
+                    </div>
+                </nav>
+        </head>
+    <body>
+        <div class="pane section-light">
+            
+            <div class="ptext" style="top:20%;">
+            <h1>Raters and their ratings</h1>
+            </div>
+
+
+            <div class="largedata">
+            <h2>{{rater.name}} give the highest overall rating</h2>
+            <h3>
+                <br>Join Date: {{rater.join_date}} 
+                 <br>Reputation: {{rater.reputation}} 
+                 <br> Restaurants: {{restaurant.name}}
+                <br> Rating date: {{rating.date}}
+            </h3>
+
+            <h2>{{rater.name}} rated the restaurant DAVIDsTEA</h2>
+            <h3>
+                <br>Reputation: {{rater.reputation}}
+                <br> Comments:{{rating.comments}}
+                <br> Menu items: {{item.name}}
+                <br> Price: {{item.price}} 
+            </h3>
+
+            <h2>{{rater.name}} gave ratings that lower than John</h2>
+            <h3>
+                Rating: {{rating.mood}}
+            </h3>
+            
+            <h2>{{rater.name}} with {{rater.rater_type}} provide the most diverse ratings</h2>
+                <h3>
+                    <br>Restaurant: {{restaurant.name}} 
+                    <br>Rating: {{rating.mood}}
+                    </h3>
+                </div>
+        </div>
+    </body>
+</html>      
+                

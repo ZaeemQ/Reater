@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html class='parallax' lang="en">
+        <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+              
+                <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+              
+                <title>Register</title>
+                <link rel="stylesheet" href="../static/style1.css">
+                
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                     
+                      <ul class="nav navbar-nav">
+                        <li class="active"><a href="{{url_for('restaurants')}}">Home</a></li>
+                        
+                        <li><a href="{{url_for('register')}}">Register</a></li>
+                        <li><a href="{{url_for('raterList')}}">Raters</a></li>
+                      </ul>
+                    </div>
+                </nav>
+        </head>
+
+
+<body class="parallax-body pimg1 parallax-img parallax-landing" style='background-image:url(../static/img/projects-landing.jpg)'>
+  
+    <div class="ptext" style="top:15%">
+      <span class="border">
+        Register
+      </span>
+    </div>
+
+    <div class = "registration" style="position: absolute;top:35%; width: 80%; left: 10%; text-align: center">
+        <form action="action_page.php">
+
+          <div>
+              <label for="email"><b>Email</b></label>
+              <div>
+              <input type="text" placeholder="Enter Email" name="email" required style="width: 80%">
+              </div>
+          </div>
+
+          <div>
+              <label for="psw"><b>Password</b></label>
+              <div>
+              <input type="password" placeholder="Enter Password" name="psw" required style="width: 80%;">
+              </div>
+          </div>
+
+          <div>
+              <label for="psw-repeat"><b>Repeat Password</b></label>
+              <div>
+              <input type="password" placeholder="Repeat Password" name="psw-repeat" required style="width: 80%">
+              </div>
+          </div>
+
+          
+          <div class="clearfix" style="margin-top: 20px;">
+            <button type="button" class="cancelbtn" style="background-color: red; color: black; font-weight: bold; width: 45%;">Cancel</button>
+            <button type="submit" class="signupbtn" style="background-color: rgb(15, 117, 40); color: black; font-weight: bold; width: 45%;">Sign Up</button>
+          </div>
+          
+          </form> 
+    </div>
+  </body>

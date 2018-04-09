@@ -1,0 +1,10 @@
+Flask
+sqlalchemy
+psycopg2-binary
+flask_sqlalchemy
+flask_restless
+flask_marshmallow
+marshmallow-sqlalchemy
+pandas
+wtforms
+Faker
